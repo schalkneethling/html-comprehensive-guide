@@ -1,0 +1,18 @@
+{
+  "name": "html-comprehensive-guide",
+  "description": "A comprehensive guide book of the core, semantic language of the web. Written in public and released as open source.",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.21.3",
+    "astro": "^4.3.5",
+    "sharp": "^0.32.5"
+  }
+}
