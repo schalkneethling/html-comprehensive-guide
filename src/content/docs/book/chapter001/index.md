@@ -171,6 +171,8 @@ Now, you may also want those links to always open in a new tab (browsing context
 
 As mentioned, there is a second attribute you can set on the `base` element, and that attribute is the `target` attribute. We can therefore avoid repeating `target`:
 
+> **NOTE:** Be careful here as this could negatively impact the user experience and accessibility as there is nothing indicating to the user that all links will open in a new window or tab. While not a blanket statement, I almost always prefer to leave the choice of whether a link should open in the same or a different tab or window up to the user.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
