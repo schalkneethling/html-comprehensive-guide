@@ -15,6 +15,7 @@ export default defineConfig({
           items: [
             // Each item here is one entry in the navigation menu.
             { label: "Chapter 1", link: "/book/chapter001/" },
+            { label: "Chapter 2", link: "/book/chapter002/" },
           ],
         },
       ],
