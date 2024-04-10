@@ -8,7 +8,7 @@ If one has always thought of HTML as just some form elements, div and span eleme
 
 ## What is HTML?
 
-HTML stands for **H**yper**T**ext **M**arkup **L**anguage and has been at the core of [the web](https://en.wikipedia.org/wiki/World_Wide_Web) since its very inception in 1989. It forms the bases of all things on the web no matter how simple or how complex. Without HTML, there are no webpages or applications. HTML also provides the [semantic structure of our documents and applications](https://webaim.org/techniques/semanticstructure/) and this is where knowing the language really pays off. Semantic structure is also critical when it comes to the accessibility of your documents, a topic I will cover throughout the book.
+HTML stands for **H**yper **T**ext **M**arkup **L**anguage and has been at the core of [the web](https://en.wikipedia.org/wiki/World_Wide_Web) since its very inception in 1989. It forms the bases of all things on the web no matter how simple or how complex. Without HTML, there are no webpages or applications. HTML also provides the [semantic structure of our documents and applications](https://webaim.org/techniques/semanticstructure/) and this is where knowing the language really pays off. Semantic structure is also critical when it comes to the accessibility of your documents, a topic I will cover throughout the book.
 
 There is a lot to HTML and some aspects of the language such as canvas can take up an entire book on their own. For some topics such as this I will provide an overview and then provide resources for further reading.
 
