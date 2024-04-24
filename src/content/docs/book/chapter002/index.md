@@ -4,11 +4,11 @@ keywords: html, html standard, how-to, learn html, link element, link, styleshee
 description: Learn the HTML link element, its attributes, resource hints, and other uses.
 ---
 
-Chapter two is dedicated to the `link` element, its various attributes and use cases. You may know the element primarily for linking stylesheets to a document, but there is a **lot** more that can be done with this element. We will start with the more well-known attributes and uses and then move on to the newer and lesser known attributes.
+Chapter two is dedicated to the `link` element, its various attributes and use cases. Broadly speaking the `link` element is used to "link" other document or resources. I used quotes around the word link because you may know the element primarily for linking stylesheets to a document, but there is a **lot** more that can be done with this element. We will start with the more well-known attributes and uses and then move on to the newer and lesser known attributes.
 
 ## The `href` attribute
 
-The `href` attribute is the core of this element. It is required and needs to contain a valid Uniform Resource Locator (URL). As mentioned before, the most commonly known use case is linking an external stylesheet, for example:
+The `href` attribute is the core of this element. It is required, if no `imagesrcset` is present, and needs to contain a valid Uniform Resource Locator (URL). As mentioned before, the most commonly known use case is linking an external stylesheet, for example:
 
 ```html
 <link href="style/main.css" />
