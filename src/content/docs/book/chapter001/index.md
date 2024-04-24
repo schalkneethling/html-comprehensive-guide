@@ -107,7 +107,7 @@ Here, it would also be prudent to add a `lang` attribute indicating the primary 
 
 ## The `base` element
 
-The `base` element is written as self-closing, or void, tag. This means that, while a lot of tags in HTML are written as follows:
+The `base` element is a `void` element ans as such is written as a self-closing tag. This means that, while a lot of tags in HTML are written as follows:
 
 ```html
 <title>My page title</title>
@@ -119,7 +119,13 @@ A self-closing tag is written like this:
 <base href="https://html-comprehensive-guide.dev/" />
 ```
 
-The `base` element allows you to set a base URL for all links on the current page, set a base browsing context, or both, for all links on the page. Let’s look at an example.
+> **Note:** The HTML specification states that `void` elements should be written without the forward slash at the end of the tag, but tools such as Prettier will add it by default. There is also no way at the moment to disable this. There is additional complexity here due to most modern frameworks who use JSX, or JSX like syntax, require `void` elements to use the forward slash. To avoid confusion and follow the practice you are most likely to encounter in other codebases, I will stick with using a closing forward slash.
+
+I will start the discussion of this element with a caveat. While this element is still part of the specification, in all of my time building for the web I have not once had a need for this element. That is not to say that there is not a use case, but I would be careful in using it, especially concerning using the `target` attribute. Always respect the user's choice first and do not force a browsing context, unless it is absolutely needed.
+
+With this important context stated, let's discuss what the `base` element does.
+
+The `base` element allows you to set a base URL for all links on the current page, set a base browsing context, or both, for all elements with a `href` or `target` property on the page. Let’s look at an example.
 
 ```html
 <ul>
@@ -156,8 +162,6 @@ All of those links share the same **base** URL. Using the `base` element, you ca
 </html>
 ```
 
-> NOTE: If the HTML above was on a page that was hosted as part of the Goodreads website, you would not include the URL as part of the link and instead, opt for using relative URLs. In other words, instead of `https://www.goodreads.com/book/show/11588.The_Shining` you will do just `book/show/11588.The_Shining`. The `base` element would therefore not be useful in this case.
-
 Now, you may also want those links to always open in a new tab (browsing context). One option is to do:
 
 ```html
@@ -171,7 +175,7 @@ Now, you may also want those links to always open in a new tab (browsing context
 
 As mentioned, there is a second attribute you can set on the `base` element, and that attribute is the `target` attribute. We can therefore avoid repeating `target`:
 
-> **NOTE:** Be careful here as this could negatively impact the user experience and accessibility as there is nothing indicating to the user that all links will open in a new window or tab. While not a blanket statement, I almost always prefer to leave the choice of whether a link should open in the same or a different tab or window up to the user.
+> **NOTE:** Be careful here as this could negatively impact the user experience and accessibility as there is nothing indicating to the user that all links will open in a new window or tab. While not a blanket statement, I generally prefer to leave the choice of whether a link should open in the same or a different tab or window up to the user.
 
 ```html
 <!DOCTYPE html>
@@ -191,72 +195,23 @@ As mentioned, there is a second attribute you can set on the `base` element, and
 </html>
 ```
 
-With the above in place, **all** links in the current page will use `https://www.googreads.com` as its base URL and all links will open in a new tab. The thing is, it does mean that **all** "links" will have this behavior. Not only are anchor tags affected but _all_ elements with a `href` attribute are affected. For example:
+With the above in place, **all** elements with a `href` attribute on the current page will use `https://www.googreads.com` as its base URL and all elements with a `target` attribute will open in a new tab. You might have noticed that I did not say links but elements, that is because not only anchor tags affected but _all_ elements with a `href` (or `target`) attribute are affected. For example:
 
 ```html
 <base href="https://www.goodreads.com/" />
 <link rel="stylesheet" type="text/css" href="css/pink.css" media="screen" />
 ```
 
-In the above scenario, the browser will attempt to load the stylesheet from the Goodreads website, which is probably not what you intended. Thankfully, the `base` element only affects elements below it in source order, so changing the above as follows will solve the problem:
+In the above scenario, the browser will attempt to load the stylesheet from the Goodreads website, which might not be what you intended. Thankfully, the `base` element only affects elements below it in source order, so changing the above as follows will solve the problem:
 
 ```html
 <link rel="stylesheet" type="text/css" href="css/pink.css" media="screen" />
 <base href="https://www.goodreads.com/" />
 ```
-
-Remember that `_blank` is not the only possible value for the `target` attribute. One other value is `_top`. Using `_top` as the value of `target` might be useful as a means of [frame busting](https://en.wikipedia.org/wiki/Framekiller) aka, prevent your site from being displayed in an `iframe`.
-
-```html
-<base target="_top" />
-```
-
-While this will not prevent the site from initially being loaded in an `iframe`, it _will_ cause clicks on any links in the page to bust out of the `iframe` by setting its browsing context to the topmost browsing context i.e. the browser window itself.
-
-I will close this chapter with an example use case that might be a bit of a stretch. I am using a combination of the `base` element, a specific CSS `class` on certain elements, and some JavaScript. The result is something that could be useful in a web application.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <base target="_blank" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The HTML base element</title>
-    <link rel="stylesheet" type="text/css" href="css/pink.css" media="screen" />
-  </head>
-
-  <body>
-    <ul>
-      <li><a class="native" href="add-book">Add Book</a></li>
-      <li><a class="native" href="view">View Bookshelf</a></li>
-    </ul>
-
-    <ul>
-      <li>
-        <a href="https://amzn.to/3Olm2de">Misery</a>
-      </li>
-      <li>
-        <a href="https://amzn.to/3OlsCQM">Carrie</a>
-      </li>
-    </ul>
-  </body>
-  <script>
-    document.addEventListener("click", (event) => {
-      if (event.target.classList.contains("native")) {
-        event.preventDefault();
-        window.location = event.target.href;
-      }
-    });
-  </script>
-</html>
-```
-
-With the above, clicks on any link that has a `class` attribute with the value `native` will be intercepted by JavaScript and opened in the same tab/window. All other links will open in a new tab. One interesting aspect to note about the above is that, even when intercepted by JavaScript, the value of `event.target.href` will use the base `href` value defined on the `base` element, for example `https://www.goodreads.com/add-book`. So be careful 😄
 
 Some final notes on the `base` element. There must be no more than one `base` element per page. If there are multiple, all but the first will be ignored. As with `href`, all elements that have a `target` attribute set are affected by the value of the `target` attribute of the `base` element. This means that forms with a `target` will also be affected.
 
-In case you are interested, here is the URL parsing algorithm (from the W3C documentation):
+It is also helpful to know the parsing algorithm as it could clear up any surprising outcomes you may encounter.
 
 ```html
 <base href="https://www.example.com/news/index.html" />
