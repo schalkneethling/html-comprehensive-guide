@@ -3,6 +3,7 @@ import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://schalkneethling.github.io/html-comprehensive-guide/",
   integrations: [
     starlight({
       title: "HTML: A Comprehensive Guide",

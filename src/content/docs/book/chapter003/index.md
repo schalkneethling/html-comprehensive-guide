@@ -1,10 +1,10 @@
 ---
-title: "Chapter 3: The link element"
+title: "The link element - Chapter 3"
 keywords: html, html standard, how-to, learn html, link element, link, stylesheet, resource hints, dns-prefetch, preconnect, prefetch, prerender, preload, stylesheet, icon, manifest, pingback, prerender, prefetch, dns-prefetch, preconnect, preload, stylesheet, icon, manifest, pingback
-description: Learn the HTML link element, its attributes, resource hints, and other uses.
+description: Dive into the HTML link element, its attributes, resource hints, and other uses.
 ---
 
-Chapter two is dedicated to the `link` element, its various attributes and use cases. Broadly speaking the `link` element is used to "link" other document or resources. I used quotes around the word link because you may know the element primarily for linking stylesheets to a document, but there is a **lot** more that can be done with this element. We will start with the more well-known attributes and uses and then move on to the newer and lesser known attributes.
+Chapter three is dedicated to the `link` element, its various attributes and use cases. Broadly speaking the `link` element is used to "link" other documents or resources. I used quotes around the word link because you may know the element primarily for linking stylesheets to a document, but there is a **lot** more that can be done with this element. We will start with the more well-known attributes and uses and then move on to the newer and lesser known attributes.
 
 ## The `href` attribute
 
@@ -16,7 +16,7 @@ The `href` attribute is the core of this element. It is required, if no `imagesr
 
 ## The `media` element
 
-In the past this attribute was primarily used to link separate stylesheets for defining the style rules for rendering the document on a screen or when printing. For example:
+One of the common use cases for the `media` attribute is to separate and conditionally load different stylesheets for screen and print media output modes. For example:
 
 ```html
 <link rel="stylesheet" href="screen.css" media="screen" />
@@ -65,7 +65,7 @@ This can be useful in cases where you have CSS that is only ever applicable to a
 
 ## The `rel` attribute
 
-The `rel` attribute indicates the **rel**ationship between the current document and the file or document being referenced by the `href` attribute. The `rel` attribute is required and should contain one, or more, valid keywords in order for a link to be created.
+The `rel` attribute indicates the (rel)ationship between the current document and the file or document being referenced by the `href` attribute. The `rel` attribute is required and should contain one, or more, valid keywords in order for a link to be created.
 
 What does this mean? If you have the following HTML document, for example:
 
@@ -90,7 +90,7 @@ h1 {
 }
 ```
 
-Loading the document in your browser will show the heading but, the color will be black. Because the `rel` attribute is not present, the browser creates no link and thus, does not load the CSS file. If you were to add a `rel` attribute, but set its value to say, "await", it would produce the same result. That is because the value "await" is not a valid keyword.
+Loading the document in your browser will show the heading but, the color will be the default text color, black. Because the `rel` attribute is not present, the browser creates no link and thus, does not load the CSS file. If you were to add a `rel` attribute, but set its value to say, "await", it would produce the same result. That is because the value "await" is not a valid keyword.
 
 In order for the link to be created and for the stylesheet to be loaded, you need to specify a valid value such as `stylesheet`:
 
@@ -102,7 +102,7 @@ Reloading the document will now show the heading as red.
 
 ### A use case for invalid values
 
-The latter of the two "incorrect usages" above is a strategy often used to lazy load CSS files that are not critical on the initial load. The crux of it is as follows. You add a `link` element to the head of the document but, set the value of the `rel` attribute to an invalid keyword, say, "await". As you saw earlier, this will result in the browser not loading the CSS file.
+The latter of the two "incorrect usages" above is a strategy often used to lazy load CSS files that are not critical on the initial load. The crux of it is as follows. You add a `link` element to the head of the document but, set the value of the `rel` attribute to an invalid keyword, say, "await". As mentioned earlier, this will result in the browser not loading the CSS file.
 
 At the end of the HTML document, you would then have some JavaScript that swaps out the invalid keyword for a valid keyword:
 
@@ -116,11 +116,11 @@ At the end of the HTML document, you would then have some JavaScript that swaps 
 })();
 ```
 
-Once the above JavaScript executes (generally when the DOM(document) has finished loading), the browser will detect the change, recognize the `rel` attribute, load, parse and apply the CSS. This is a simple way to lazy load CSS files that are not critical to the initial rendering of the document.
+Once the above JavaScript executes (generally when the document has finished loading), the browser will detect the change, recognize the `rel` attribute, load, parse and apply the CSS. This is a simple way to lazy load CSS files that are not critical to the initial rendering of the document.
 
 ## The `alternate` keyword
 
-The `alternate` keyword of the `rel` attribute suggests that it creates a link to an alternative version of the current document. While that is true, there are some important details. The meaning of the keyword depends on the other attributes used along with it or, the keyword combination.
+The `alternate` keyword of the `rel` attribute suggests that it creates a link to an alternative version of the current document. While that is true, there are some important details. The meaning of the keyword depends on the other attributes used along with it or the combination of keywords used.
 
 Let's discuss keyword combinations. With regard to accessibility, there are a lot of things to take into account when designing and developing for the web. Color contrast, as well as the size and type of font used, are some of these considerations. Sometimes though, it is hard or even impossible to address everyone’s needs in the base styling of your website. But this does not mean that all hope is lost. One way to offer a customizable experience to everyone is through the use of alternate stylesheets.
 
@@ -186,7 +186,7 @@ With the `title` attribute set, the purpose of our alternate stylesheets is clea
 
 A couple of things to note here. All three stylesheets will be loaded by the browser but, the alternate stylesheets will be given the lowest priority and will be loaded in a non-blocking manner. The second thing is that the stylesheets are not loaded in an additive manner i.e. each stylesheet is loaded by itself. This is unfortunate and makes the use case of these alternate stylesheets via the native client almost useless except for some rare cases such as a super stripped-down version of the site (something akin to a reader mode).
 
-With that said, using a similar technique to the one shown for lazy loading CSS, you could build a simple UI for your website and additively load these stylesheets when the user selects an alternate version. I am not going to dig into the details here but, it would be something useful to provide to end-users.
+With that said, using a similar technique to the one shown for lazy loading CSS, you could build a simple UI for your website and additively load these stylesheets when the user selects an alternate version using your custom component. I am not going to dig into the details here but, it could be something useful to provide to end-users.
 
 ### When `alternate` is combined with `hreflang`
 
@@ -201,7 +201,7 @@ As mentioned earlier, the meaning of `alternate` changes depending on the keywor
 />
 ```
 
-The above is used by search engines to determine whether there is an alternate version of the document available in the user’s preferred language and, it prevents the problem of [duplicate content](https://yoast.com/duplicate-content/) that can lead to negative outcomes for your site with regard to search engine optimization (SEO).
+The above is used by search engines to determine whether there is an alternate version of the document available in the user’s preferred language and, it prevents the [problem of duplicate content](https://yoast.com/duplicate-content/) that can lead to negative outcomes for your site with regard to search engine optimization (SEO).
 
 ### The `canonical` keyword `[NON-STANDARD]`
 
@@ -263,7 +263,7 @@ What is this icon the browser is looking for? Well, the icon in question is the 
 
 And the reason for the error? First, the file does not exist. But then you probably have not even specified the file anywhere in your code, so why is the browser even attempting to load it? This is down to the loading algorithm browsers use when it attempts to find a favicon to use for your website.
 
-If you see are seeing the error above, then based on this algorithm I can make some assumptions.
+If you notice the error above, then based on this algorithm I can make some assumptions.
 
 1. You do not have a `link` element in the `head` of your document with a `rel` attribute using the `icon` keyword.
 2. You do, but the resource pointed to by the `href` attribute does not exist.
@@ -271,7 +271,7 @@ If you see are seeing the error above, then based on this algorithm I can make s
 
 I can make those assumptions in order because that is what the browser will do when attempting to find and load a favicon for your website. In other words, the browser will look for a link element with a `rel` attribute using the keyword `icon`. Should it find one, it will attempt to load the resource specified by the `href` attribute. Should the format of the resource not be supported or, the resource fails to load, the browser will attempt to fetch the favicon from `www.yoursite.com/favicon.ico`. Failing that, it will give up and "silently" fail. I put silently in quotes, because, unless you are a developer poking around in developer tools, you will be none the wiser that all the above even happened, or that it resulted in an HTTP 404 error.
 
-Knowing the above, we can take the needed steps to avoid the unhappy outcome we saw above. But wait, if the browser will in the end just look for that file at the root of your website, why not just put the relevant file there and be done with it? That is an option, and you would not be wrong for doing it however, why make the poor browser jump through all those hoops if we can just tell it where to find the file we want it to use in a single line of code?
+Knowing the above, we can take the needed steps to avoid the unfortunate outcome we saw above. But wait, if the browser will in the end just look for that file at the root of your website, why not just put the relevant file there and be done with it? That is an option, and you would not be wrong for doing it however, why make the poor browser jump through all those hoops if we can just tell it where to find the file we want it to use in a single line of code?
 
 There are more reasons to use the `link` element with the `icon` keyword than just to avoid the browser's favicon loading algorithm. Even though the `ico` format has served us well in the past, the web has moved on. The `ico` format was originally conceived of by Microsoft back in the early days of the web as a format that can contain multiple, differently sized versions of the same file. The browser or operating system will then decide which size to use based on the context it is used in, and the screen resolution.
 
@@ -285,7 +285,7 @@ With this in mind, we start from the most modern approach for defining a favicon
 
 ### The Scalable Vector Graphics (SVG) format
 
-The easiest way to support the vast array of screen resolutions out there is to use an image format that is scalable. On the web, that image format is SVG aka Scalable Vector Graphics. Support for SVG icons is pretty new but, [browser support is pretty good](https://caniuse.com/#feat=link-icon-svg) already. As some folks have discovered, over and above supporting various resolutions, because one can embed CSS inside an SVG, you can even [support dark mode with a single SVG icon](https://blog.tomayac.com/2019/09/21/prefers-color-scheme-in-svg-favicons-for-dark-mode-icons/).
+The easiest way to support the vast array of screen resolutions out there is to use an image format that is scalable. On the web, that image format is SVG aka Scalable Vector Graphics. In addition, over and above supporting various resolutions, because one can embed CSS inside an SVG, you can even [support dark mode with a single SVG icon](https://blog.tomayac.com/2019/09/21/prefers-color-scheme-in-svg-favicons-for-dark-mode-icons/).
 
 The first icon we will add to our head is an SVG icon:
 
@@ -297,32 +297,20 @@ You will notice a new attribute in the above snippet, the `sizes` attribute. Thi
 
 ### The Portable Network Graphics (PNG) format
 
-Should the browser not support SVG icons, it will ignore our line above and look at the next line of code. The next format in line with a [much wider level of browser support](https://caniuse.com/#feat=link-icon-png) is the PNG image format. Because PNG images are [raster-based](https://developer.mozilla.org/en-US/docs/Glossary/Raster_image) and not [vector based](https://www.adobe.com/africa/creativecloud/design/discover/vector-file.html), we do need to specify (and have on disk) a couple of different sizes:
+Should the browser not support SVG icons, it will ignore our line above and look at the next line of code. The next format in line with a [much wider level of browser support](https://caniuse.com/#feat=link-icon-png) is the PNG image format.
 
+<!-- prettier-ignore -->
 ```html
-<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+<link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
 ```
 
-That covers what is defined in the HTML standard. Unfortunately, there is one more thing we do need. The non-standard apple-touch-icon keyword for rel.
+That covers what is defined in the HTML standard. Unfortunately, there is one more thing we do need. The non-standard apple-touch-icon keyword for the `rel` attribute.
 
 ### The `apple-touch-icon` keyword `[NON-STANDARD]`
 
-Even though this is not a standard, [HTML validators will not error](https://github.com/validator/validator/issues/433#issuecomment-268984140) when present, but [Lighthouse will error if it is not present](https://web.dev/apple-touch-icon/). Other platforms also depend on it as it is so [well known and widely used](https://github.com/h5bp/html5-boilerplate/blob/master/src/index.html#L16) so, it is best to include it as well. Thankfully there is no proprietary file format, just the non-standard keyword and some specific sizes:
+Even though this is not a standard, [HTML validators will not error](https://github.com/validator/validator/issues/433#issuecomment-268984140) when present, but [Lighthouse will error if it is not present](https://web.dev/apple-touch-icon/). Other platforms also depend on it as it is so [well known and widely used](https://github.com/h5bp/html5-boilerplate/blob/master/src/index.html#L16) so, it is best to include it as well. Thankfully there is no proprietary file format, just the non-standard keyword:
 
 ```html
-<link
-  rel="apple-touch-icon"
-  href="apple-icon-144x144.png"
-  sizes="144x144"
-  type="image/png"
-/>
-<link
-  rel="apple-touch-icon"
-  href="/media/apple-icon-152x152.png"
-  sizes="152x152"
-  type="image/png"
-/>
 <link
   rel="apple-touch-icon"
   href="/media/apple-icon-180x180.png"
@@ -330,8 +318,6 @@ Even though this is not a standard, [HTML validators will not error](https://git
   type="image/png"
 />
 ```
-
-> **NOTE:** You may not need all the sizes specified above. The sizes are based on the [Apple Safari Web Content Configuration](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) documentation.
 
 What about `rel="shortcut icon"`? This is another relic of the past, is not defined in the HTML standard, and would only be used to specify the `ico` variant. Beyond that, even specifying the type when using a `ico` is [up for debate](https://stackoverflow.com/questions/13827325/correct-mime-type-for-favicon-ico) and contentious. If you want the widest possible browser support, ensure that you have a `favicon.ico` at the root of your website.
 
@@ -381,7 +367,7 @@ That is a lot! Thankfully this entire process takes only milliseconds, but it do
 
 ## The `crossorigin` attribute
 
-Before we move on to the next keyword, I want to quickly touch on the `crossorigin` attribute. This attribute is used, as the name suggests, when linking to cross-origin assets. More specifically, when `preloading` assets cross-origin. For example, on the domain `example.com` you may want to preload some JavaScript from `widgets.com`
+Before we move on to the next keyword, I want to quickly touch on the `crossorigin` attribute. This attribute is used, as the name suggests, when linking to cross-origin assets. More specifically, when `preloading` assets cross-origin. For example, on the domain `example.com` you may want to preload some JavaScript from `widgets.com`. In other words, you want make a request across origins.
 
 ```html
 <link rel="preload" href="https://widgets.com/widget/tabs.js" />
@@ -403,7 +389,7 @@ The above will initiate an anonymous cross-origin fetch. In other words, it will
 />
 ```
 
-> **An important side note:** While we are talking about preloading and cross-origin though, there is a little gotcha to be aware of with regard to preloading fonts. When preloading fonts, you always have to specify the `crossorigin` attribute whether the font is being loaded cross-origin or not. This is because of the [font fetching requirements](https://drafts.csswg.org/css-fonts/#font-fetching-requirements) as defined in the CSS font specification.
+> **An important side note:** While we are talking about preloading and cross-origin though, there is a little gotcha to be aware of concerning preloading fonts. When preloading fonts, you always have to specify the `crossorigin` attribute whether the font is being loaded cross-origin or not. This is because of the [font fetching requirements](https://drafts.csswg.org/css-fonts/#font-fetching-requirements) as defined in the CSS font specification.
 
 With that, we can get back to the remaining resource hints.
 
@@ -451,7 +437,7 @@ The syntax of `preload` is the same as that of `prefetch`:
 />
 ```
 
-As with `prefetch` the browser will fetch and cache the resource but not execute. Preload is also only concerned with the current page. It is not to be used for resources that might be required later during subsequent navigation.
+As with `prefetch` the browser will fetch and cache the resource but not execute. Unlike `prefetch`, `preload` is only concerned with the current page. It is not to be used for resources that might be required later during subsequent navigation. Another difference is that you MUST specify the `as` attribute when using `preload`.
 
 > NOTE: While the resource hints are well-supported across modern browsers, `preload` [has some caveats](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload#browser_compatibility).
 
@@ -459,10 +445,10 @@ As with `prefetch` the browser will fetch and cache the resource but not execute
 
 The `modulepreload` keyword is a specialized form of preload all about optimizing [ES module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) loading. As such, the only valid type you can load with `modulepreload` is JavaScript with the `as` attribute being set to `script` by default. Discussing ES modules is way beyond the scope of the book, but I can highly recommend the [JavaScript Definitive Guide](https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/) or [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) and the resources in the related reading section for more info.
 
-There are two ways you can approach using `modulepreload`. The specification calls out the fact that, because module scripts declare their dependencies, implementation can take advantage of this fact to preload all the declared dependencies of a module. For example, say we have a module script called `main.mjs`. This script then declares the following dependencies: `utils.mjs`, `parser.mjs`, `animation.mjs`. Now, assuming we have the following in the head of our document:
+There are two ways you can approach using `modulepreload`. The specification calls out the fact that, because module scripts declare their dependencies, implementation can take advantage of this fact to preload all the declared dependencies of a module. For example, say we have a module script called `main.js`. This script then declares the following dependencies: `utils.js`, `parser.js`, `animation.js`. Now, assuming we have the following in the head of our document:
 
 ```html
-<link rel="modulepreload" href="main.mjs" />
+<link rel="modulepreload" href="main.js" />
 ```
 
 The implementation could introspect this module and discover the declared dependencies. With this knowledge the implementation (JavaScript engine) could then go ahead and fetch and cache all the dependencies as well, setting everything up for a much speedier experience once the main module is parsed and executed.
@@ -470,22 +456,22 @@ The implementation could introspect this module and discover the declared depend
 As the above is implementation-dependent, a safer option would be to be explicit as follows:
 
 ```html
-<link rel="modulepreload" href="main.mjs" />
-<link rel="modulepreload" href="utils.mjs" />
-<link rel="modulepreload" href="parser.mjs" />
-<link rel="modulepreload" href="animation.mjs" />
+<link rel="modulepreload" href="main.js" />
+<link rel="modulepreload" href="utils.js" />
+<link rel="modulepreload" href="parser.js" />
+<link rel="modulepreload" href="animation.js" />
 ```
 
 Now, if the implementation does take advantage of the fact the module dependencies are declared, it would run an algorithm that goes something like this:
 
-- I see you have a module called `main.mjs` you want me to preload, let me get that for you...
+- I see you have a module called `main.js` you want me to preload, let me get that for you...
 - OK, I got it 👍. Let me stick that in my module map 🗺
 - Oh wait, I see this module declares some dependencies. Let me grab those as well.
 - OK, I got it 👍. Let me stick those in my module map as well 🗺
-- Ah, I see you have another module called `utils.mjs` you want me to preload, let me get that for you...
+- Ah, I see you have another module called `utils.js` you want me to preload, let me get that for you...
 - Wait, wait... I think I already have that module in my module map. One sec... ⏲
 - Yup, yup, I already have that one
-- Ah, I see you have another module called `parser.mjs` you want me to preload, let me get that for you...
+- Ah, I see you have another module called `parser.js` you want me to preload, let me get that for you...
 - Wait, wait... I think I already have that module in my module map. One sec... ⏲
 - Yup, yup, I already have that one
 - etc.
@@ -543,7 +529,7 @@ While DuckDuckGo does not have it set, the [specification also calls for a `prof
 </head>
 ```
 
-This concludes chapter two, but we are not done with the `link` element. We still need to cover the integrity attribute, `type`, `referrerpolicy`, `imagesrcset`, and `imagesizes`. All of these will be covered in chapter three.
+This concludes chapter three, but we are not done with the `link` element. We still need to cover the integrity attribute, `type`, `referrerpolicy`, `imagesrcset`, and `imagesizes`. All of these will be covered in chapter four.
 
 ## Related Reading
 

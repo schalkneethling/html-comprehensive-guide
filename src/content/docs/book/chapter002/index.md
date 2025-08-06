@@ -1,10 +1,8 @@
 ---
-title: "Chapter 2: Getting started with HTML"
+title: "Getting started with HTML - Chapter 2"
 keywords: html, html standard, how-to, learn html
 description: Learn the elements of the core, semantic language of the web.
 ---
-
-If one has always thought of HTML as just some form elements, div and span elements, links and paragraph tags, it seems strange that one would dedicate an entire book to the language. As you will see throughout this book, there is a **lot** more to the HTML language.
 
 ## What is HTML?
 
@@ -36,7 +34,7 @@ Now that the browser knows that what follows will be HTML, we start our document
 
 ### `lang`
 
-Being at the root of our document, there is one attribute that should always be set on the `html` element. The `lang` attribute on the `html` element indicates the primary natural language the document is written in. It also assists speech synthesis tools in what pronunciations to use, and helps translation tools select the rules they should apply. This is critical for the overall accessibility of your documents. It takes the following form:
+One attribute that should always be set on the `html` element is the `lang` attribute. This indicates the primary natural language the document is written in. It also assists speech synthesis tools in what pronunciations to use, and helps translation tools select the rules they should apply. This is critical for the overall accessibility of your documents. It takes the following form:
 
 ```html
 <html lang="en">
@@ -44,7 +42,7 @@ Being at the root of our document, there is one attribute that should always be 
 </html>
 ```
 
-Should you not want your entire document to be localizable through translation tools, you can specify the [`translate` property](https://html.spec.whatwg.org/#attr-translate), setting its value to `no` :
+Should you not want your document to be localizable through translation tools, you can specify the [`translate` property](https://html.spec.whatwg.org/#attr-translate), setting its value to `no` :
 
 ```html
 <html lang="en" translate="no">
@@ -54,7 +52,7 @@ Should you not want your entire document to be localizable through translation t
 
 ## The `head` element
 
-The `head` of our HTML document contains metadata about the document. So what is metadata? In short, it is [“data about data”](https://en.wikipedia.org/wiki/Metadata). Not all metadata lives in the `head` though, and not all metadata that lives in the `head` is necessarily descriptive, more on this later.
+The `head` of an HTML document contains metadata about the current document. So what is metadata? In short, it is [“data about data”](https://en.wikipedia.org/wiki/Metadata). Not all metadata lives in the `head` though, and not all metadata that lives in the `head` is necessarily descriptive, more on this later.
 
 ```html
 <!DOCTYPE html>
@@ -68,12 +66,13 @@ The `head` of our HTML document contains metadata about the document. So what is
 
 ## The `title` element
 
-The first piece of metadata we will add to our webpages is the `title` tag. Seems like such a simple element, and it is, but while simple, it is critical to orient a user. The `title` uniquely identifies the current page in the browser's history, is the first piece of information read to users using screen readers; is the title shown to users in search results, when sharing on social media, and is crucial [for SEO](https://moz.com/learn/seo/title-tag)(search engine optimization).
+The first piece of metadata we will add to our webpages is the `title` tag. Seems like such a simple element, and it is, but while simple, it is critical to orient a user. The `title` uniquely identifies the current page in the browser's history, is the first piece of information read to users using screen readers; is the title shown to users in search results, when sharing on social media, and is crucial [for search enmgine optimization](https://moz.com/learn/seo/title-tag)(SEO).
 
 With that said, keep the following guidelines in mind when writing your title:
 
 - Be concise when writing your titles and aim to keep the total character count at around 60.
 - Remember that document titles should make sense when read out of context.
+- Ensure that repeated content such as the company or website name is at the end of the title.
 
 > See the web content accessibility guidelines (WCAG) for more information on [providing descriptive titles for web pages](https://www.w3.org/WAI/WCAG22/Techniques/general/G88.html).
 
@@ -84,7 +83,7 @@ For example, the title for this chapter would read:
 <html lang="en">
   <head>
     <title>
-      Chapter 1: Getting started with HTML - HTML Comprehensive Guide
+      Getting started with HTML - Chapter 2 - HTML Comprehensive Guide
     </title>
   </head>
   ...
@@ -93,13 +92,13 @@ For example, the title for this chapter would read:
 
 The `title` tag does not have any special attributes but supports all the global attributes, one of which is `translate`. Using this attribute, you can prevent translation tools from localizing your page title.
 
-Why would you want to do that? Your page title could be the title of a poem or a song. In those cases you do not want the title translated. For example:
+Why would you want to do that? Your page title could be the title of a poem or a song, but in a different language that the primary language of your page. In those cases you do not want the title translated. For example:
 
 ```html
 <title translate="no">Revoir Paris | Roland Dyens</title>
 ```
 
-Here, it would also be prudent to add a `lang` attribute indicating the primary language used in the `title` tag. As mentioned earlier, this will assist speech synthesis tools in what pronunciations to use. For example:
+Here, it would also be prudent to add a `lang` attribute indicating the primary language used in the `title` tag. As mentioned earlier, this will assist speech synthesis tools. For example:
 
 ```html
 <title translate="no" lang="fr">Revoir Paris | Roland Dyens</title>
@@ -107,25 +106,26 @@ Here, it would also be prudent to add a `lang` attribute indicating the primary 
 
 ## The `base` element
 
-The `base` element is a `void` element ans as such is written as a self-closing tag. This means that, while a lot of tags in HTML are written as follows:
+The `base` element is a `void` element and as such is written as a self-closing tag. This means that, while a lot of tags in HTML are written as follows:
 
 ```html
 <title>My page title</title>
 ```
 
-A self-closing tag is written like this:
+A self-closing or void tag is written like this:
 
+<!-- prettier-ignore -->
 ```html
-<base href="https://html-comprehensive-guide.dev/" />
+<base href="https://html-comprehensive-guide.dev/">
 ```
 
-> **Note:** The HTML specification states that `void` elements should be written without the forward slash at the end of the tag, but tools such as Prettier will add it by default. There is also no way at the moment to disable this. There is additional complexity here due to most modern frameworks who use JSX, or JSX like syntax, require `void` elements to use the forward slash. To avoid confusion and follow the practice you are most likely to encounter in other codebases, I will stick with using a closing forward slash.
+> **Note:** The HTML specification states that `void` elements should be written without the forward slash at the end of the tag, but tools such as Prettier will add it by default. There is also no way at the moment to disable this when using Prettier. There is additional complexity here due to most modern frameworks who use JSX, or JSX like syntax, requiring `void` elements to use the forward slash. Whether the forward slash is present or not, your HTML will continue to be parsed and rendered correctly.
 
-I will start the discussion of this element with a caveat. While this element is still part of the specification, in all of my time building for the web I have not once had a need for this element. That is not to say that there is not a use case, but I would be careful in using it, especially concerning using the `target` attribute. Always respect the user's choice first and do not force a browsing context, unless it is absolutely needed.
+I will start the discussion of this element with a caveat. While this element is still part of the specification, in all of my time building for the web I have not once had a need for this element. That is not to say that there is not a use case, but I would be careful in using it, especially concerning the `target` attribute. Always respect the user's choice first and do not force a browsing context, unless it is absolutely needed.
 
 With this important context stated, let's discuss what the `base` element does.
 
-The `base` element allows you to set a base URL for all links on the current page, set a base browsing context, or both, for all elements with a `href` or `target` property on the page. Let’s look at an example.
+The `base` element allows you to set a base URL, set a base browsing context, or both, for all elements with an `href` or `target` property on the page. Let’s look at an example.
 
 ```html
 <ul>
@@ -195,7 +195,7 @@ As mentioned, there is a second attribute you can set on the `base` element, and
 </html>
 ```
 
-With the above in place, **all** elements with a `href` attribute on the current page will use `https://www.googreads.com` as its base URL and all elements with a `target` attribute will open in a new tab. You might have noticed that I did not say links but elements, that is because not only anchor tags affected but _all_ elements with a `href` (or `target`) attribute are affected. For example:
+With the above in place, **all** elements with an `href` attribute on the current page will use `https://www.googreads.com` as its base URL and all elements with a `target` attribute will open in a new tab. You might have noticed that I did not say links but elements, that is because not only anchor tags are affected but _all_ elements with an `href` (or `target`) attribute are affected. For example:
 
 ```html
 <base href="https://www.goodreads.com/" />
@@ -220,10 +220,12 @@ It is also helpful to know the parsing algorithm as it could clear up any surpri
 <!-- The above URL will be https://www.example.com/news/archives.html -->
 
 <a href="/blog/archives.html">archives</a>
-<!-- The above URL will be https://www.example.com/blog/archives.html -->
+<!-- The above URL will be https://www.example.com/blog/archives.html
+  Note that this URL starts with a forward slash -->
 
 <a href="./blog/archives.html">archives</a>
-<!-- The above URL will be https://www.example.com/news/blog/archives.html -->
+<!-- The above URL will be https://www.example.com/news/blog/archives.html
+ Note that this URL start with a dot and a forward slash -->
 
 <a href="https://www.otherwebsite.com/blog/archives.html">archives</a>
 <!-- The above URL will be https://www.otherwebsite.com/blog/archives.html -->

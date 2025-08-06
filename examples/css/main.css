@@ -1,0 +1,41 @@
+body {
+  --red: red;
+  --white: white;
+  --orange: orange;
+
+  font: 100% / 1.5 system-ui, sans-serif;
+}
+
+.viewport {
+  background: transparent url("../assets/spritesheet-enemies-default.png") top
+    left no-repeat;
+  background-size: 750%;
+  background-position-y: -256px;
+  block-size: 8rem;
+  inline-size: 8rem;
+  /* animation: walk 1s steps(10) infinite; */
+  position: relative;
+  /* animation: walk 1s infinite; */
+
+  &::before {
+    content: "";
+    display: block;
+    block-size: 100%;
+    inline-size: 100%;
+    background: transparent url("../assets/background_clouds.png") top left
+      no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+@keyframes walk {
+  from {
+    background-position-y: -128px;
+  }
+
+  to {
+    background-position-y: -256px;
+  }
+}

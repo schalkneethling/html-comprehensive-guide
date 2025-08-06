@@ -1,5 +1,5 @@
 ---
-title: "Chapter 1: A Condensed History of HTML"
+title: "A Condensed History of HTML - Chapter 1"
 keywords: html, html standard, history, web standards
 description: "A brief history of HTML, from its origins at CERN to the modern HTML Living Standard."
 ---
