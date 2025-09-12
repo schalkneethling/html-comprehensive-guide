@@ -1,0 +1,5 @@
+.small-viewport,
+.mid-viewport,
+.large-viewport {
+    display: none;   
+}

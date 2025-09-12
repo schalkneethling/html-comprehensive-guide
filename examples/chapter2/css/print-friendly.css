@@ -1,0 +1,17 @@
+main {
+    background: #fff;
+    color: #212121;
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    padding: 0;
+}
+
+main .sidebar,
+main .ads,
+main .navigation {
+    display: none;
+}

@@ -1,0 +1,16 @@
+main {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-block: 0;
+    margin-inline: auto;
+    max-width: 50rem;
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+}
+
+main .sidebar,
+main .ads {
+    display: none;
+}
