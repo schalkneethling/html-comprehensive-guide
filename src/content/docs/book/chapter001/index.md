@@ -1,7 +1,7 @@
 ---
 title: "Chapter 1: Getting started with HTML"
-keywords: html, html standard, how-to, learn html
-description: Learn the elements of the core, semantic language of the web.
+keywords: html document structure, html elements, html head, html title, html base, doctype, html lang attribute, html metadata, web accessibility, html semantics, html document root, html getting started
+description: Master the fundamental HTML document structure. Learn about the html, head, title, and base elements, DOCTYPE declarations, and essential attributes for web accessibility and SEO.
 ---
 
 If one has always thought of HTML as just some form elements, div and span elements, links and paragraph tags, it seems strange that one would dedicate an entire book to the language. As you will see throughout this book, there is a **lot** more to the HTML language.
