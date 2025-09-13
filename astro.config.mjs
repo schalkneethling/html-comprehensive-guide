@@ -14,8 +14,12 @@ export default defineConfig({
           label: "Chapters",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Chapter 1", link: "/book/chapter001/" },
-            { label: "Chapter 2", link: "/book/chapter002/" },
+            { label: "Introduction", link: "/book/introduction/" },
+            {
+              label: "Getting started with HTML",
+              link: "/book/chapter001/",
+            },
+            { label: "The link element", link: "/book/chapter002/" },
           ],
         },
       ],

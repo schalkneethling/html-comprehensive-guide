@@ -21,4 +21,4 @@ pnpm-debug.log*
 .DS_Store
 
 # agent files
-src/content/AGENTS.md
+AGENTS.md

@@ -1,7 +1,7 @@
 ---
 title: "Chapter 2: The link element"
-keywords: html, html standard, how-to, learn html, link element, link, stylesheet, resource hints, dns-prefetch, preconnect, prefetch, prerender, preload, stylesheet, icon, manifest, pingback, prerender, prefetch, dns-prefetch, preconnect, preload, stylesheet, icon, manifest, pingback
-description: Learn the HTML link element, its attributes, resource hints, and other uses.
+keywords: html link element, link rel attribute, link href attribute, link media attribute, stylesheet linking, favicon icon, resource hints, dns-prefetch, preconnect, prefetch, preload, modulepreload, html performance optimization, web performance, link crossorigin, alternate stylesheet, search link, pingback
+description: Master the HTML link element and its powerful attributes. Learn stylesheet linking, favicon implementation, resource hints for performance optimization, and advanced techniques like preconnect, prefetch, and modulepreload.
 ---
 
 Chapter two covers the `link` element, its attributes, and use cases. The `link` element connects documents and resources. You may know it primarily for linking stylesheets, but it does much more. We start with well-known attributes and move to newer, lesser-known ones.
@@ -11,7 +11,7 @@ Chapter two covers the `link` element, its attributes, and use cases. The `link`
 The `href` attribute is the core of this element. It is required (unless `imagesrcset` is present) and must contain a valid uniform resource locator (URL). The most common use case is linking an external stylesheet:
 
 ```html
-<link href="style/main.css">
+<link href="style/main.css" />
 ```
 
 ## The `media` attribute
@@ -19,8 +19,8 @@ The `href` attribute is the core of this element. It is required (unless `images
 This attribute was primarily used to link separate stylesheets for screen or print rendering. For example:
 
 ```html
-<link rel="stylesheet" href="screen.css" media="screen">
-<link rel="stylesheet" href="print.css" media="print">
+<link rel="stylesheet" href="screen.css" media="screen" />
+<link rel="stylesheet" href="print.css" media="print" />
 ```
 
 Since CSS added media queries, developers commonly use `@media print` in stylesheets for print styling. However, separating print rules into a dedicated stylesheet has benefits. When viewing on a display, the browser marks print stylesheets as low-priority. It defers downloading and parsing until screen resources are complete. When the browser downloads print stylesheets it does so in a non-blocking manner.
@@ -34,7 +34,7 @@ Besides the common values `all`, `screen`, and `print`, the `media` attribute su
   rel="stylesheet"
   href="tablet.css"
   media="screen and (width >= 48rem) and (width < 64rem)"
->
+/>
 ```
 
 > **Note:** There are also around [8 more media types, which have been deprecated](https://drafts.csswg.org/mediaqueries/#media-types).
@@ -50,7 +50,7 @@ What does this mean? Consider this HTML document:
 <html lang="en">
   <head>
     <title>Styled Heading</title>
-    <link href="style/main.css" media="screen">
+    <link href="style/main.css" media="screen" />
   </head>
   <body>
     <h1>I am Red!!</h1>
@@ -71,7 +71,7 @@ Loading the document in your browser shows the heading, but the color will be bl
 To create the link and load the stylesheet, specify a valid value such as `stylesheet`:
 
 ```html
-<link rel="stylesheet" href="style/main.css" media="screen">
+<link rel="stylesheet" href="style/main.css" media="screen" />
 ```
 
 Reloading the document now shows the heading as red.
@@ -106,7 +106,7 @@ Here's what each stylesheet might contain:
 /* main.css - Default modern layout */
 .article {
   display: grid;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 1rem;
   gap: 2rem;
   grid-template-columns: 1fr 18.75rem;
@@ -257,7 +257,7 @@ The easiest way to support the vast array of screen resolutions is to use a scal
 The first icon we'll add to our head is an SVG icon:
 
 ```html
-<link rel="icon" href="favicon.svg" sizes="all" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" sizes="all" type="image/svg+xml" />
 ```
 
 You'll notice a new attribute in the above snippet: the `sizes` attribute. This allows us to define and specify different sized icons for different resolutions when using formats like Portable Network Graphics (PNG). Because an SVG can scale up or down infinitely, we use the special keyword `all`.
