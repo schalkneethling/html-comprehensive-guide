@@ -170,7 +170,7 @@ Similar to the `link` element using the `alternate` keyword, a `style` element c
 
 ```html
 <style title="Reader mode">
-  ...;
+  ...
 </style>
 ```
 
@@ -182,7 +182,7 @@ When set, it indicates that this element is [potentially render-blocking](https:
 
 ```html
 <style title="Reader mode" blocking="render">
-  ...;
+  ...
 </style>
 ```
 
@@ -305,7 +305,7 @@ The `style` element embeds CSS directly within the HTML document:
 </style>
 ```
 
-The `style` element supports the same `disabled`, `media`, `title`, and `blocking` attributes as described in the stylesheet section above.
+The `style` element supports the same `disabled`, `media`, and `title` attributes as described in the stylesheet section above.
 
 ## The `canonical` keyword `[NON-STANDARD]`
 
