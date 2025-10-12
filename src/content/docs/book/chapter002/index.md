@@ -1,5 +1,5 @@
 ---
-title: "Chapter 2: The link element and style elements"
+title: "Chapter 2: The link and style elements"
 keywords: html link element, link rel attribute, link href attribute, link media attribute, stylesheet linking, favicon icon, resource hints, dns-prefetch, preconnect, prefetch, preload, modulepreload, html performance optimization, web performance, link crossorigin, alternate stylesheet, search link, pingback
 description: Master the HTML link element and its powerful attributes. Learn stylesheet linking, favicon implementation, resource hints for performance optimization, and advanced techniques like preconnect, prefetch, and modulepreload.
 ---
@@ -170,7 +170,7 @@ Similar to the `link` element using the `alternate` keyword, a `style` element c
 
 ```html
 <style title="Reader mode">
-  ...
+  ...;
 </style>
 ```
 
@@ -182,7 +182,7 @@ When set, it indicates that this element is [potentially render-blocking](https:
 
 ```html
 <style title="Reader mode" blocking="render">
-  ...
+  ...;
 </style>
 ```
 

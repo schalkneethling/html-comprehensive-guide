@@ -19,6 +19,10 @@ export default defineConfig({
               label: "Getting started with HTML",
               link: "/book/chapter001/",
             },
+            {
+              label: "The link and style elements",
+              link: "/book/chapter002/",
+            },
             { label: "The link element", link: "/book/chapter002/" },
           ],
         },
