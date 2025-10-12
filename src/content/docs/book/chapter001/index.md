@@ -59,24 +59,18 @@ The attribute uses https://www.rfc-editor.org/info/bcp47. Common examples includ
 html
 
 ```html
-<html lang="en">
-  <!-- English -->
-  <html lang="en-US">
-    <!-- US English -->
-    <html lang="en-GB">
-      <!-- British English -->
-      <html lang="fr">
-        <!-- French -->
-        <html lang="fr-CA">
-          <!-- Canadian French -->
-          <html lang="zh-Hans">
-            <!-- Simplified Chinese -->
-          </html>
-        </html>
-      </html>
-    </html>
-  </html>
-</html>
+<!-- English -->
+<html lang="en"></html>
+<!-- US English -->
+<html lang="en-US"></html>
+<!-- British English -->
+<html lang="en-GB"></html>
+<!-- French -->
+<html lang="fr"></html>
+<!-- Canadian French -->
+<html lang="fr-CA"></html>
+<!-- Simplified Chinese -->
+<html lang="zh-Hans"></html>
 ```
 
 You can override the language for specific elements within the document by applying the `lang` attribute to child elements:
@@ -162,7 +156,7 @@ By declaring charset early in the document, you ensure the browser uses step 3 r
 
 ### Pragma Directives with `http-equiv`
 
-The `http-equiv` attribute specifies pragma directives that control browser behavior. Despite the name suggesting "HTTP equivalent," these pragma directives are largely unrelated to HTTP headers. While the attribute name reflects historical conventions, the processing models for pragma directives and their similarly-named HTTP headers differ significantly—often with dramatically different behavior. The `refresh` directive is the sole exception, sharing its processing model with the corresponding `Refresh` HTTP header.
+The `http-equiv` attribute specifies pragma directives that control browser behavior. Despite the name suggesting "HTTP equivalent," these pragma directives are largely unrelated to HTTP headers. While the attribute name reflects historical conventions, the processing models for pragma directives and their similarly-named HTTP headers differ significantly, often with dramatically different behavior. The `refresh` directive is the sole exception, sharing its processing model with the corresponding `Refresh` HTTP header.
 
 You should think of pragma directives as document-level processing instructions rather than HTTP header equivalents. When possible, prefer using actual HTTP headers or alternative implementation methods over pragma directives, as the DOM's mutability can create complex timing issues during parsing.
 
@@ -317,7 +311,7 @@ Provides a concise summary of the page's content. This metadata is crucial for S
 - Write unique descriptions for each page
 - Include relevant keywords naturally
 - Focus on user value rather than keyword stuffing
-- Make it compelling—this is often users' first interaction with your content
+- Make it compelling. This is often users' first interaction with your content
 
 #### `generator`
 
@@ -369,10 +363,10 @@ Common referrer policies:
 **Legacy compatibility note**: Due to a historical specification error, include both versions for maximum compatibility:
 
 ```html
-<meta name="referrer" content="origin-when-crossorigin" />
 <!-- Legacy -->
-<meta name="referrer" content="origin-when-cross-origin" />
+<meta name="referrer" content="origin-when-crossorigin" />
 <!-- Current -->
+<meta name="referrer" content="origin-when-cross-origin" />
 ```
 
 Consider privacy implications when setting referrer policies. More restrictive policies protect user privacy but may affect analytics and some third-party services.
