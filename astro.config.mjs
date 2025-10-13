@@ -23,7 +23,6 @@ export default defineConfig({
               label: "The link and style elements",
               link: "/book/chapter002/",
             },
-            { label: "The link element", link: "/book/chapter002/" },
           ],
         },
       ],
