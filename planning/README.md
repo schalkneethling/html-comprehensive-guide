@@ -26,9 +26,9 @@ This directory turns the project goal into a product and delivery system. It is 
 - Record scope-changing decisions in `DECISIONS.md` and update every affected planning document in the same change.
 - Update `CONTENT_LEDGER.md` whenever existing material is moved, split, rewritten, or retired.
 
-## Status vocabulary
+## Planning status vocabulary
 
-Planning and coverage artifacts use these states consistently:
+Planning documents and work packages use these delivery states:
 
 - **Proposed** — described but not accepted for delivery.
 - **Ready** — dependencies and acceptance criteria are sufficient to begin.
@@ -37,6 +37,8 @@ Planning and coverage artifacts use these states consistently:
 - **In review** — outcome exists and is being evaluated against its gate.
 - **Complete** — acceptance criteria and the phase gate are satisfied.
 - **Deferred** — intentionally postponed with a reason and revisit condition.
+
+Coverage uses a separate state machine defined in [`SPEC_COVERAGE.md`](SPEC_COVERAGE.md). Planning status does not imply content coverage status, and no mapping between the two is currently maintained.
 
 ## Current activation
 

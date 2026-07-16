@@ -159,7 +159,7 @@ A reader can store and export local progress without creating an account. Loss o
 ### Content operations
 
 - **CNT-01:** Validate content schemas, stable IDs, relationships, sources, review state, and required metadata in CI.
-- **CNT-02:** Maintain a ledger giving every existing source unit an explicit retain/revise/split/merge/verify/retire disposition and destination.
+- **CNT-02:** Maintain a ledger giving every existing source unit an explicit retain/revise/split/merge/research/retire disposition and destination.
 - **CNT-03:** Define editorial rules for normative language, citations, terminology, examples, inclusive language, corrections, and review authority.
 - **CNT-04:** Support technical review and accessibility review as distinct publish gates.
 - **CNT-05:** Detect broken anchors and potentially changed mapped source fragments without automatically rewriting educational claims.
@@ -245,7 +245,6 @@ Targets must be finalized after baseline research. Each measure records its samp
 - **Learning:** pre/post prediction and repair performance; explanation rubric; delayed transfer where feasible; final-hint usage.
 - **Reference utility:** search success, time to a verified answer, unsuccessful-query themes, and direct-entry task completion.
 - **Experience:** expedition and lab completion, voluntary continuation, abandonment reason, and qualitative confidence—not raw time on site.
-- **Coverage and trust:** disposition percentage, reviewed percentage, stale items, broken anchors, correction volume, and review turnaround.
 - **Coverage and trust:** scope-accounting percentage and reviewed-coverage percentage are reported separately, alongside stale items, broken anchors, corrections, and review turnaround.
 - **Accessibility:** task completion and severity-weighted barriers across the supported matrix and disabled-participant research.
 - **Performance and reliability:** route budgets, Core Web Vitals, lab error recovery, and progress-loss rate.

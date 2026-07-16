@@ -98,7 +98,7 @@ Optional accounts may begin after local progress is validated in Phase 3. The Na
 
 **Discovery entry:** WP-600 may begin after Phase 3 demonstrates stable local-progress semantics.
 
-**Implementation entry:** WP-601–WP-606 require positive synchronization-demand evidence, accepted semantics, and ownership of the privacy/security obligations.
+**Implementation entry:** WP-601–WP-606 require positive synchronization-demand evidence, accepted semantics, and a named operational owner or accountable role for data inventory, retention and consent, provider boundaries, export and deletion, abuse controls, incident response, and ongoing privacy/security review.
 
 **Exit gate:** authentication, offline replay, conflicts, export, reset, deletion, accessibility, privacy, and security pass their acceptance evidence.
 

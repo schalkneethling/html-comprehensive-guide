@@ -6,7 +6,7 @@ Readers who demonstrate a need for cross-device continuity can opt into reliable
 
 ## Entry conditions
 
-WP-600 may begin after local progress semantics are validated in E03. WP-601–WP-606 require positive demand evidence from WP-600 plus accepted privacy/security operating responsibility.
+WP-600 may begin after local progress semantics are validated in E03. WP-601–WP-606 require positive demand evidence from WP-600 and a named privacy/security operational owner or accountable role that accepts responsibility for the data inventory, purpose and retention limits, consent, provider boundaries, export and deletion, abuse controls, incident response, and ongoing review.
 
 ## Work packages
 

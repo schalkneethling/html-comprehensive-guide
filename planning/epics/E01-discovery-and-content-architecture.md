@@ -25,4 +25,4 @@ Research and information architecture. No production shell or large-scale rewrit
 
 ## Gate
 
-The Phase 1 exit gate in the roadmap is satisfied. There is no unaccounted existing content; the taxonomy works on a representative cross-section; and full seeding has an executable plan. Full disposition is required before a comprehensiveness claim, not before the First Byte experiment.
+The Phase 1 exit gate in the roadmap is satisfied only when evidence shows there is no unaccounted existing content, the taxonomy works on a representative cross-section, and full seeding has an executable plan. Full disposition is required before a comprehensiveness claim, not before the First Byte experiment.

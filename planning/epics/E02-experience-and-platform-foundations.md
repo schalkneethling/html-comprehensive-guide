@@ -28,6 +28,6 @@ Validated architecture and representative fixtures, not the complete site or cur
 
 ## Gate
 
-The Phase 2 exit gate passes with linked automated and manual evidence. No live-editor architecture is accepted solely because a prototype renders.
+The Phase 2 exit gate passes only when the required linked automated and manual evidence exists. No live-editor architecture is accepted solely because a prototype renders.
 
 WP-200 and WP-209 are foundation containers, not issue-ready tasks. Before activation, split WP-200 into application/content, deployment/runtime, and provider/portability decisions; split WP-209 into formatting/types, schema/provenance/links, unit/browser, accessibility, security, and performance packages with exact requirement IDs.

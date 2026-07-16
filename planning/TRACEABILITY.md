@@ -15,7 +15,8 @@ This is the top-level map. Work-package issue creation should add direct links t
 | `AI-*` | E07 Navigator | E01, E02, E08 | Grounding/citation evals, safety/privacy review, beta research |
 | `A11Y-*` | E02 Experience/platform foundations | Every delivery epic | Automated checks plus manual supported-matrix and disabled-user tasks |
 | `PERF-*` | E02 Experience/platform foundations | E03–E08 | Route budgets, representative hardware tests, Core Web Vitals |
-| `SEC-*`, `PRIV-*` | E02 foundations and E06 accounts | E03, E07, E08 | Threat models, security tests, data review, incident exercises |
+| `SEC-*` | E02 Experience/platform foundations | E03, E06, E07, E08 | Threat models, security tests, abuse review, incident exercises |
+| `PRIV-*` | E06 Accounts/progress/privacy | E02, E03, E07, E08 | Data inventory, consent/retention review, export/deletion tests, incident exercises |
 | `REL-*` | E02 Experience/platform foundations | E03–E08 | Failure injection, fallback checks, recovery and portability review |
 | `RSR-*` | E01 Discovery/content architecture | E03 | Research-plan review, consent/data evidence, sampling/saturation audit |
 | `EDN-*` | E08 First edition/living operations | E05 | Frozen-scope audit, reviewed-coverage audit, reproducible output checks |
