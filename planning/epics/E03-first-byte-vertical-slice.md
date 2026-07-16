@@ -8,7 +8,7 @@ One complete expedition demonstrates whether the product improves working develo
 
 | ID | Work package | Requirements | Dependencies | Acceptance evidence |
 |---|---|---|---|---|
-| WP-300 | Preregister misconceptions, objectives, rubric, sampling, effect, severity, and pilot decision rules | JRN-05–06, RSR-01–03 | E01, E02 | Practical-effect threshold, scoring reliability, task/segment coverage, accessibility severity, and continue/iterate/stop rules accepted before pilot recruitment and before evaluation |
+| WP-300 | Preregister misconceptions, objectives, rubric, sampling, effect, severity, and pilot decision rules | JRN-05–06, RSR-01–03 | E01, E02 | Practical-effect threshold, scoring reliability, task/segment coverage, documented sampling limitations, saturation and decision rules, explicit criteria for adding another participant tranche, accessibility severity, and continue/iterate/stop rules accepted before pilot recruitment and before evaluation |
 | WP-301 | Author mission, causal explanation, field notes, and Archive change | JRN-02–06, CNT-03–04 | WP-300 | Editorial, specification, technical, and accessibility reviews |
 | WP-302 | Author canonical parsing, DOM, conformance, and quirks Atlas entries | ATL-01–06 | WP-300 | Structured provenance and coverage validation pass |
 | WP-303 | Build source-to-DOM Browser Lens | BRW-01–04 | E02, WP-301–302 | Fidelity comparisons and non-visual task equivalence pass |
@@ -21,4 +21,4 @@ One complete expedition demonstrates whether the product improves working develo
 
 ## Gate
 
-Pass the ten vertical-slice criteria in the PRD. Pilot thresholds are interpreted with sample and method, not as standalone proof.
+Pass the ten vertical-slice criteria in the PRD. Pilot thresholds cannot be accepted until the sampling limitations, saturation and decision rules, criteria for adding another participant tranche, and stopping/continuation rules are defined. Thresholds are interpreted with the documented sample and method, not as standalone proof.
