@@ -1,10 +1,16 @@
 # HTML: A Comprehensive Guide
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
-
 A comprehensive guide book of the core, semantic language of the web. Written in public and released as open source.
 
-## 🚀 Project Structure
+## Project direction
+
+The project is being reimagined as **HTML — The Living Web**, a specification-grounded, interactive journey for working web developers. Read the [project goal](GOAL.md) and the [planning index](planning/README.md) for the vision, product requirements, roadmap, research, and delivery epics.
+
+## Current baseline
+
+The current implementation is an early Astro/Starlight documentation site. It is source material and scaffolding for the fresh product described in the planning documents, not the target architecture.
+
+## 🚀 Current Project Structure
 
 Inside of your Astro + Starlight project, you'll see the following folders and files:
 
@@ -34,13 +40,9 @@ All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview the build locally                        |
+| `pnpm run astro ...`       | Run Astro CLI commands                           |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
